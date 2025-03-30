@@ -8,8 +8,6 @@
 4. **Code Editor**: Use a code editor like Visual Studio Code for editing Bicep files.
 5. Anytime in any command it says `<your-app-name>` you have to change it to your own app name.
 
----
-
 ## Step 1: Set Up Your Environment
 
 1. Open your terminal or command prompt.
@@ -22,8 +20,6 @@
    az account set --subscription <your-subscription-id>
    ```
 
----
-
 ## Step 2: Create the Resource Group
 
 Create a resource group where all resources will be deployed:
@@ -33,8 +29,6 @@ az group create --name <your-app-name>-rg --location eastus
 
 - **Resource Group Name:** `<your-app-name>-rg`
 - **Location:** `eastus`
-
----
 
 ## Step 3: Deploy the Infrastructure
 
@@ -54,8 +48,6 @@ After the deployment, note the following outputs:
 - **ACR Login Server:** `<your-app-name>acr.azurecr.io`
 - **ACR Resource ID:** `/subscriptions/<subscription-id>/resourceGroups/<your-app-name>-rg/providers/Microsoft.ContainerRegistry/registries/<your-app-name>acr`
 - **Log Analytics Workspace ID:** `<workspace-id>`
-
----
 
 ## Step 4: Build and Push the Docker Image
 
@@ -85,9 +77,6 @@ After the deployment, note the following outputs:
      ```sh
      az acr repository show-tags --name <your-app-name>acr --repository crud-app --output table
      ```
-
----
-
 ## Step 5: Retrieve the Log Analytics Workspace Key
 
 Retrieve the `logAnalyticsWorkspaceKey` securely using the Azure CLI:
@@ -96,8 +85,6 @@ az monitor log-analytics workspace get-shared-keys --resource-group <your-app-na
 ```
 
 Save the key for use in the next step.
-
----
 
 ## Step 6: Deploy the Application
 
@@ -114,8 +101,6 @@ az deployment group create --resource-group <your-app-name>-rg --template-file <
 Replace:
 - `<workspace-id>` with the Log Analytics Workspace ID from Step 3.
 - `<workspace-key>` with the Log Analytics Workspace Key retrieved in Step 5.
-
----
 
 ## Step 7: Verify the Deployment
 
@@ -142,8 +127,6 @@ Replace:
    http://<fqdn>
    ```
 
----
-
 ## Step 8: Check Logs in Azure Monitor
 
 1. **Go to the Azure Portal**:
@@ -161,8 +144,6 @@ Replace:
    - Then click **Select Tables**
    - Open **Custom Logs**
    - And click either one.
-
----
 
 ## Step 9: Clean Up Resources
 
@@ -188,5 +169,3 @@ To save Azure credits, delete all resources after completing the assignment:
    ```sh
    az acr repository delete --name <your-app-name>acr --repository crud-app --yes
    ```
-
----

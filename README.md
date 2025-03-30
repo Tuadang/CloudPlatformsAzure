@@ -25,8 +25,6 @@ The Bicep templates are modular and organized for better maintainability:
 - **`infrastructure.bicep`**: Deploys the foundational infrastructure, including ACR, Log Analytics Workspace, and networking resources.
 - **`application.bicep`**: Deploys the Azure Container Instance and configures it to pull the Docker image from ACR.
 
----
-
 ## Step-by-Step Deployment Guide
 
 A comprehensive step-by-step guide is available in the [`docs`](./docs/step-by-step-guide.md) folder. The guide includes:
@@ -36,8 +34,6 @@ A comprehensive step-by-step guide is available in the [`docs`](./docs/step-by-s
 4. Deploying the application using `application.bicep`.
 5. Verifying the deployment and accessing the application.
 6. Checking logs in Azure Monitor via the Log Analytics Workspace.
-
----
 
 ## Getting Started
 
