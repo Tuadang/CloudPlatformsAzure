@@ -164,8 +164,3 @@ To save Azure credits, delete all resources after completing the assignment:
    docker images
    docker rmi <your-app-name>acr.azurecr.io/crud-app:latest
    ```
-
-4. **Remove Images from ACR (Optional):**
-   ```sh
-   az acr repository delete --name <your-app-name>acr --repository crud-app --yes
-   ```
